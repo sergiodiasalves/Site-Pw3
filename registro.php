@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="favicon/pw3.ico">
 
-    <title>PW3</title>
+    <title>Criar Conta</title>
 
     <!-- Principal CSS do Bootstrap -->
     <link href="css/bootstrap.css" rel="stylesheet">
@@ -30,9 +30,16 @@
                 <h1 class="text-center">
                     <a href="index.php" class="text-success">PW3</a>
                 </h1>
-                <p class="text-center">Faça login para iniciar a sua sessão</p>
+                <p class="text-center">Crie uma conta gratuita.</p>
 
                 <form action="" method="">
+
+                <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
+                        </div>
+                        <input type="text" name="nome" class="form-control" placeholder="Nome Completo" aria-label="nome" aria-describedby="basic-addon1">
+                    </div>
 
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
@@ -48,18 +55,22 @@
                         <input type="password" name="senha" class="form-control" placeholder="Senha" aria-label="Senha" aria-describedby="basic-addon1">
                     </div>
 
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1"><i class="fas fa-key"></i></span>
+                        </div>
+                        <input type="password" name="confirmaSenha" class="form-control" placeholder="Repita a Senha" aria-label="confirmaSenha" aria-describedby="basic-addon1">
+                    </div>
+
                     <div class="form-group text-right">
-                        <button class="btn btn-success">Entrar</button>
+                        <button class="btn btn-success">Cadastrar</button>
                     </div>
 
                     <p>
-                        <a href="recupera-senha.php" class="text-success">Esqueceu a senha?</a>
+                        <a href="Login.php" class="text-success">Já tenho uma conta.</a>
                     </p>
 
-                    <p>
-                        <a href="registro.php" class="text-success">Criar uma conta</a>
-                    </p>
-
+                  
                 </form>
 
             </div>
