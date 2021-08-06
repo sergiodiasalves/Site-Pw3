@@ -34,7 +34,7 @@
 
                 <form action="" method="">
 
-                <div class="input-group mb-3">
+                    <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
                         </div>
@@ -62,6 +62,11 @@
                         <input type="password" name="confirmaSenha" class="form-control" placeholder="Repita a Senha" aria-label="confirmaSenha" aria-describedby="basic-addon1">
                     </div>
 
+                    <div class="form-group form-check" >
+                        <input type="checkbox" name="termos" class="form-check-input" id="termos">
+                        <label class="form-check-label" for="exampleCheck1">Aceitar os <a href="#" class="text-success"  data-toggle="modal" data-target="#modalTermos">termos</a></label>
+                    </div>
+
                     <div class="form-group text-right">
                         <button class="btn btn-success">Cadastrar</button>
                     </div>
@@ -70,13 +75,37 @@
                         <a href="Login.php" class="text-success">Já tenho uma conta.</a>
                     </p>
 
-                  
+
                 </form>
 
             </div>
         </div>
 
     </main><!-- /.container -->
+
+ 
+<!-- Modal -->
+<div class="modal fade" id="modalTermos" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Termos PW 3</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error neque iure rerum facere exercitationem. Amet fugit quas praesentium. Magni deserunt temporibus reprehenderit voluptas tempore vero reiciendis harum similique? Omnis, ut.</p>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error neque iure rerum facere exercitationem. Amet fugit quas praesentium. Magni deserunt temporibus reprehenderit voluptas tempore vero reiciendis harum similique? Omnis, ut.</p>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>
 
     <!-- Principal JavaScript do Bootstrap
     ================================================== -->
