@@ -32,34 +32,34 @@
                 </h1>
                 <p class="text-center">Crie uma conta gratuita.</p>
 
-                <form action="" method="">
+                <form action="" method="" id="FormCriaConta">
 
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
                         </div>
-                        <input type="text" name="nome" class="form-control" placeholder="Nome Completo" aria-label="nome" aria-describedby="basic-addon1">
+                        <input type="text" name="nome" id="nome" class="form-control" placeholder="Nome Completo" aria-label="nome" aria-describedby="basic-addon1">
                     </div>
 
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon1"><i class="fas fa-envelope"></i></span>
                         </div>
-                        <input type="mail" name="email" class="form-control" placeholder="E-mail" aria-label="E-mail" aria-describedby="basic-addon1">
+                        <input type="mail" name="email" id="email" class="form-control" placeholder="E-mail" aria-label="E-mail" aria-describedby="basic-addon1">
                     </div>
 
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon1"><i class="fas fa-key"></i></span>
                         </div>
-                        <input type="password" name="senha" class="form-control" placeholder="Senha" aria-label="Senha" aria-describedby="basic-addon1">
+                        <input type="password" name="senha" id="senha" class="form-control" placeholder="Senha" aria-label="Senha" aria-describedby="basic-addon1">
                     </div>
 
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon1"><i class="fas fa-key"></i></span>
                         </div>
-                        <input type="password" name="confirmaSenha" class="form-control" placeholder="Repita a Senha" aria-label="confirmaSenha" aria-describedby="basic-addon1">
+                        <input type="password" name="confirmaSenha" id="confirmaSenha" class="form-control" placeholder="Repita a Senha" aria-label="confirmaSenha" aria-describedby="basic-addon1">
                     </div>
 
                     <div class="form-group form-check" >
@@ -112,6 +112,80 @@
     <!-- Foi colocado no final para a página carregar mais rápido -->
     <script src="js/jquery-3.js"></script>
     <script src="js/bootstrap.js"></script>
+    <script src="jquery-validation/dist/jquery.validate.js"></script>
+    <script>
+        $(document).ready(function() {
+
+            $("#FormCriaConta").validate({
+
+                //Regras para Validação
+                rules:{
+                    nome: 'required',       //Campo Obrigatório
+
+                    email: {
+                        required: true,     //Campo Obrigatório
+                        email: true         //campo tipo Email
+                    },
+
+                    senha:{
+                        required: true,     //Campo Obrigatório
+                        minlength: 5        //Campo com no mínimo 5 caracteres
+                    },
+
+                    confirmaSenha:{
+                        required: true,     //Campo Obrigatório
+                        minlength: 5,       //Campo com no mínimo 5 caracteres
+                        equalTo: "#senha"   //Campo deve ser igual a senha
+                    },
+
+                    termos: 'required'      //Campo Obrigatório
+                },
+
+                //Mensagem apresentada
+                messages:{
+                    nome: 'O Campo nome completo é obrigatório',
+
+                    email: {
+                        required: 'O Campo E-mail é obrigatório',
+                        email: 'Informe um e-mail válido'
+                    },
+
+                    senha:{
+                        required: 'O Campo senha é obrigatório',
+                        minlength: 'A senha deve ter no mínimo 5 caracteres'
+                    },
+
+                    confirmaSenha:{
+                        required: 'O Campo repita senha é obrigatório',
+                        minlength: 'A senha deve ter no mínimo 5 caracteres',
+                        equalTo: "Digite a mesma senha acima"
+                    },
+
+                    termos: 'Por favor, leia e aceite nossos Termos',
+                },
+
+                errorElement: "em",
+				errorPlacement: function ( error, element ) {
+					// Add the `invalid-feedback` class to the error element
+					error.addClass( "invalid-feedback" );
+
+					if ( element.prop( "type" ) === "checkbox" ) {
+						error.insertAfter( element.next( "label" ) );
+					} else {
+						error.insertAfter( element );
+					}
+				},
+				highlight: function ( element, errorClass, validClass ) {
+					$( element ).addClass( "is-invalid" ).removeClass( "is-valid" );
+				},
+				unhighlight: function (element, errorClass, validClass) {
+					$( element ).addClass( "is-valid" ).removeClass( "is-invalid" );
+				}
+
+            })
+            
+        })
+    </script>
 
 
 </body>
